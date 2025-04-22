@@ -1,0 +1,26 @@
+CREATE TABLE board(
+ bo_idx INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ writer VARCHAR(60) NOT NULL,
+ title VARCHAR(60) NOT NULL,
+ content LONGTEXT NOT NULL,
+ pwd  CHAR(255) NOT NULL,
+ hit INT NOT NULL,
+ b_groups INT NOT NULL,
+ b_step INT NOT NULL,
+ b_lev INT NOT NULL,
+ regdate datetime NOT NULL,
+ f_name VARCHAR(255),
+ ACTIVE INT NOT NULL DEFAULT 0
+);
+
+Пост A (оригинальное сообщение)
+├─ b_groups: 1, b_step: 0, b_lev: 0
+│
+├─ Ответ A1 (первый ответ на Пост A)
+│  ├─ b_groups: 1, b_step: 1, b_lev: 1
+│  │
+│  └─ Ответ A1.1 (ответ на Ответ A1)
+│     ├─ b_groups: 1, b_step: 2, b_lev: 2
+│
+└─ Ответ A2 (второй ответ на Пост A)
+   ├─ b_groups: 1, b_step: 3, b_lev: 1
