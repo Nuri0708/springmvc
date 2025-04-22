@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 객체 생성 및 관리 -->
+	<!-- OracleDAO  oracledao = new OracleDAO()-->
+	<bean id="oracledao" class="com.ict.edu02.OracleDAO" />
+	<bean id="mysqldao" class="com.ict.edu02.MySQLDAO" />
+	
+	<!-- 생성자 방법 주입 -->
+	<!-- <bean id="service" class="com.ict.edu02.Service"> -->
+	<!-- 위에 만들어진 OracleDAO를  Service 생성자에 넣자 -->
+	<!-- 위에서 만들어진 bean 객체를 호출할때 ref -->
+	<!--  <constructor-arg ref="mysqldao"  /> -->
+	<!-- </bean> -->
+	
+	<!-- setter 방법 주입 -->
+	<bean id="service" class="com.ict.edu02.Service">
+		<property name="dao" ref="oracledao" />
+	</bean>
+	
+	
+</beans>
